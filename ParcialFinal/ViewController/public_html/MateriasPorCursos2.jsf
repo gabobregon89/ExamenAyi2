@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="MateriasPorCursos2.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:decorativeBox id="db1">
+                <f:facet name="top"/>
+                <f:facet name="center">
+                    <af:panelGroupLayout layout="vertical" id="pgl1">
+                        <af:panelHeader text="Materias" id="ph1">
+                            <af:query id="qryId1" headerText="Search" disclosed="true"
+                                      value="#{bindings.MateriasPorCursoViewCriteriaQuery.queryDescriptor}"
+                                      model="#{bindings.MateriasPorCursoViewCriteriaQuery.queryModel}"
+                                      queryListener="#{bindings.MateriasPorCursoViewCriteriaQuery.processQuery}"
+                                      queryOperationListener="#{bindings.MateriasPorCursoViewCriteriaQuery.processQueryOperation}"
+                                      resultComponentId="::resId1"/>
+                        </af:panelHeader>
+                        <af:table value="#{bindings.MateriasView2.collectionModel}" var="row"
+                                  rows="#{bindings.MateriasView2.rangeSize}"
+                                  emptyText="#{bindings.MateriasView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.MateriasView2.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.MateriasView2.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.MateriasView2.rangeSize}"
+                                  filterModel="#{bindings.MateriasPorCursoViewCriteriaQuery.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.MateriasPorCursoViewCriteriaQuery.processQuery}"
+                                  varStatus="vs" id="resId1">
+                            <af:column sortProperty="#{bindings.MateriasView2.hints.CursoId.name}" filterable="true"
+                                       sortable="true" headerText="Nombre Curso" id="resId1c1">
+                                <af:selectOneChoice value="#{row.bindings.CursoId.inputValue}"
+                                                    label="#{row.bindings.CursoId.label}"
+                                                    required="#{bindings.MateriasView2.hints.CursoId.mandatory}"
+                                                    shortDesc="#{bindings.MateriasView2.hints.CursoId.tooltip}"
+                                                    readOnly="true" id="soc1">
+                                    <f:selectItems value="#{row.bindings.CursoId.items}" id="si1"/>
+                                    <f:validator binding="#{row.bindings.CursoId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.MateriasView2.hints.Nombre.name}" filterable="true"
+                                       sortable="true" headerText="Nombre Materia" id="resId1c2">
+                                <af:outputText value="#{row.Nombre}"
+                                               shortDesc="#{bindings.MateriasView2.hints.Nombre.tooltip}" id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.MateriasView2.hints.Duracion.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.MateriasView2.hints.Duracion.label}"
+                                       id="resId1c3">
+                                <af:outputText value="#{row.Duracion}"
+                                               shortDesc="#{bindings.MateriasView2.hints.Duracion.tooltip}" id="ot2">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.MateriasView2.hints.Duracion.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:decorativeBox>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.11.57" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/MateriasPorCurso.jsf" usageId="view_MateriasPorCursoPageDef"/>
+    <page path="/MateriasPorCursos2.jsf" usageId="view_MateriasPorCursos2PageDef"/>
+    <page path="/NuevaMateria.jsf" usageId="view_NuevaMateriaPageDef"/>
+    <page path="/NuevoCurso.jsf" usageId="view_NuevoCursoPageDef"/>
+    <page path="/inicio.jsff" usageId="view_inicioPageDef"/>
+    <page path="/nuevo.jsff" usageId="view_nuevoPageDef"/>
+    <page path="/CursosUltimo.jsf" usageId="view_CursosUltimoPageDef"/>
+    <page path="/modificar.jsff" usageId="view_modificarPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_MateriasPorCursoPageDef" path="view.pageDefs.MateriasPorCursoPageDef"/>
+    <page id="view_MateriasPorCursos2PageDef" path="view.pageDefs.MateriasPorCursos2PageDef"/>
+    <page id="view_NuevaMateriaPageDef" path="view.pageDefs.NuevaMateriaPageDef"/>
+    <page id="view_NuevoCursoPageDef" path="view.pageDefs.NuevoCursoPageDef"/>
+    <page id="view_inicioPageDef" path="view.pageDefs.inicioPageDef"/>
+    <page id="view_nuevoPageDef" path="view.pageDefs.nuevoPageDef"/>
+    <page id="view_CursosUltimoPageDef" path="view.pageDefs.CursosUltimoPageDef"/>
+    <page id="view_modificarPageDef" path="view.pageDefs.modificarPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="CursoMateriasDataControl" Package="model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="CursoMateriasLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

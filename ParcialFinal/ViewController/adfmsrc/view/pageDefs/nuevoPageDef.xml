@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.11.57" id="nuevoPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="CursosView1" RangeSize="25" DataControl="CursoMateriasDataControl" id="CursosView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CursosView1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="Id" NDValue="${bindings.CreateWithParams_Id}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="CursosView1Iterator" id="CreateWithParams1" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="Nombre" NDValue="${bindings.CreateWithParams1_Nombre}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="CursosView1Iterator" id="CreateWithParams2" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="Duracion" NDValue="${bindings.CreateWithParams2_Duracion}" NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="CursosView1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CursosView1Iterator" id="Nombre">
+      <AttrNames>
+        <Item Value="Nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CursosView1Iterator" id="Duracion">
+      <AttrNames>
+        <Item Value="Duracion"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="CursoMateriasDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="CursoMateriasDataControl"/>
+  </bindings>
+</pageDefinition>
